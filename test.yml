@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: Get server hostname 
+      command: hostname
+      
+    - name: Run uptime command
+      command: /usr/bin/uptime
+      register: out
+
+    - debug: var=out.stdout_lines

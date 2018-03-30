@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+  - name: Upgrade all packages
+    become: true
+    yum: name=* state=latest
+    
+  - name: Install tools
+    become: true
+    yum: name={{item}} state=present update_cache=yes
+    with_items:
+      - ntp
+      - screen
