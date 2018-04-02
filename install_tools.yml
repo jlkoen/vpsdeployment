@@ -11,3 +11,12 @@
     with_items:
       - ntp
       - screen
+      - nginx
+      - mysql-server
+      - php-fpm
+      - php-mysql
+#     - php7.0-curl
+
+  - name: Copy .screenrc to skel directory
+    become: true
+    copy: src=files/.screenrc dest=/etc/skel mode=0644
